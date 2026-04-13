@@ -1,0 +1,87 @@
+================================================================================
+STORE SUMMARY REPORT GENERATOR
+================================================================================
+
+SETUP (One-Time, ~5 minutes)
+================================================================================
+
+1. Make sure you have the blank template file:
+   "Store_Summary_Report_Template.docx"
+   
+   This file should be in the same folder as SETUP.py
+
+2. Double-click "SETUP.py"
+   - It will install required Python packages
+   - It will prepare the template for use
+   - When done, you can close the window
+
+3. That's it! Setup is complete.
+
+DAILY USE (Every Time Your Manager Generates a Report)
+================================================================================
+
+1. Double-click "Store_Report_Generator.py"
+
+2. A browser window will open with a form
+
+3. Upload two Excel files:
+   - Current week Operations Report
+   - Last year (same week) Operations Report
+
+4. Auto-filled fields (from Excel):
+   - Weekending Date
+   - Hours Worked
+   - Sales, Transactions, Average Ticket (both current and last year)
+
+5. Fill in the remaining fields:
+   - Store Name/Number
+   - Manager Name
+   - Hours Scheduled
+   - Sales Comments
+   - Labor Comments
+   - Financial Comments
+   - Team Update Comments
+   - 86 Repairs (optional - click "Add Repair" to add rows)
+
+6. Click "Generate Report"
+
+7. Word document will download automatically
+
+FILES YOU NEED
+================================================================================
+
+SETUP.py
+  → Run this ONCE to set up everything
+  → You can delete it after setup is done
+
+Store_Report_Generator.py
+  → Run this EVERY TIME to generate a report
+  → Keep this file permanently
+
+Store_Summary_Report_Template.docx
+  → Your blank template
+  → Needed for SETUP.py
+  → Can be deleted after setup is done (template is saved internally)
+
+REQUIREMENTS
+================================================================================
+
+✓ Python 3.7+ (install from python.org if not already installed)
+✓ Windows, Mac, or Linux
+✓ Web browser (any modern browser)
+
+TROUBLESHOOTING
+================================================================================
+
+"Template not found" when running SETUP.py
+→ Make sure "Store_Summary_Report_Template.docx" is in the same folder
+→ Check the filename spelling exactly
+
+"Setup not complete" when running the main program
+→ Run SETUP.py first
+→ Follow the setup instructions above
+
+Browser doesn't open automatically
+→ Go to http://localhost:5000 in your browser manually
+
+================================================================================
