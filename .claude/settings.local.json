@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python)",
+      "Bash(pkill -9 python)",
+      "Bash(taskkill /F /IM python.exe)",
+      "Bash(wmic process:*)"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run & Debug Store Report",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/Store_Report_Generator.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}
