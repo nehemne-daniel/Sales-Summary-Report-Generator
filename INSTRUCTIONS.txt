@@ -34,8 +34,8 @@ STEP 3 — Run setup
 DAILY USE (Every Time You Generate a Report)
 ================================================================================
 
-1. Double-click "Store_Report_Generator.py"
-   - A black window opens — keep it open while using the program
+1. Double-click "Run_Report.vbs"
+   - No window appears — this is normal
    - Your browser opens automatically at http://localhost:5000
    - If the browser does not open, type http://localhost:5000 manually
 
@@ -73,9 +73,14 @@ SETUP.py
   → Run this ONCE during initial setup
   → Can be deleted after setup is complete
 
-Store_Report_Generator.py
-  → Double-click this EVERY TIME to generate a report
+Run_Report.vbs
+  → Double-click this EVERY TIME to launch the program
+  → No terminal window — browser opens silently
   → Keep this file permanently
+
+Store_Report_Generator.py
+  → The main program (do not delete)
+  → Do not double-click this directly — use Run_Report.vbs instead
 
 Store_Summary_Report_Template.docx
   → The blank report template
