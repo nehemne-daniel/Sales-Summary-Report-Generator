@@ -1,9 +1,9 @@
 current_sales=7075.41
 current_labor=1826.85
-current_cogs=1756.01
+current_cogs=1782.0
 total_sales=7075.41
 total_labor=1826.85
-total_cogs=1756.01
+total_cogs=1782.0
 raw_labor_pct=25.819705147828888
 labor_pct_string='25.82'
-cogs_pct_string='24.82'
+cogs_pct_string='25.19'

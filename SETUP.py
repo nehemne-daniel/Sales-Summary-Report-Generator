@@ -20,7 +20,7 @@ data_dir = script_dir / "data"
 data_dir.mkdir(exist_ok=True)
 
 print("\nStep 1: Installing Python packages...")
-packages = ['flask', 'openpyxl', 'python-docx']
+packages = ['flask', 'openpyxl', 'python-docx', 'pdfplumber']
 
 for package in packages:
     try:
@@ -33,18 +33,17 @@ for package in packages:
 
 print("\nStep 2: Setting up template...")
 
-# Check if template exists
-template_file = script_dir / "Store_Summary_Report_Template.docx"
+# Check if template exists (moved to templates/ folder)
+template_file = script_dir / "templates" / "Store_Summary_Report_Template.docx"
 
 if template_file.exists():
     # Copy template to data folder
     data_template = data_dir / "template.docx"
     shutil.copy2(template_file, data_template)
     print(f"  ✓ Template prepared")
-    print(f"  Note: You can now delete 'Store_Summary_Report_Template.docx' from this folder")
 else:
     print(f"  ⚠ Template file not found!")
-    print(f"  Please place 'Store_Summary_Report_Template.docx' in the same folder as this script")
+    print(f"  Please place 'Store_Summary_Report_Template.docx' in the 'templates' folder")
     print(f"  Then run setup again")
     input("\nPress Enter to close...")
     sys.exit(1)
@@ -52,7 +51,7 @@ else:
 print("\n" + "="*80)
 print("✓ SETUP COMPLETE!")
 print("="*80)
-print("\nYou can now run 'Store_Report_Generator.py'")
+print("\nYou can now run 'main.py' to launch the tool menu")
 print("You won't need to run this setup script again")
 print("\n" + "="*80 + "\n")
 

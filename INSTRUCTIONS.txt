@@ -1,91 +1,105 @@
 ================================================================================
-STORE SUMMARY REPORT GENERATOR
+HDOS TOOLS
+================================================================================
+
+A web-based menu with multiple tools for store managers:
+  - Store Summary Report Generator   (weekly store summary report)
+  - Till PDF to Excel Converter      (Revel till PDF -> HDOS variance template)
+
 ================================================================================
 
 SETUP (One-Time, ~5 minutes)
 ================================================================================
 
-STEP 1 — Install Python (skip if already installed)
+STEP 1 - Install Python (skip if already installed)
 
   1. Go to: python.org/downloads
   2. Download the latest Python 3 installer
   3. Run the installer
   4. IMPORTANT: On the first screen, check "Add Python to PATH"
   5. Click "Install Now" and complete the installation
-  6. The laptop must have internet access for this step
+  6. The computer must have internet access for this step
 
-STEP 2 — Copy the program folder to this computer
+STEP 2 - Copy the program folder to this computer
 
-  Place the following files in the same folder (e.g., Desktop):
+  The folder should contain at minimum:
     - SETUP.py
-    - Store_Report_Generator.py
-    - Store_Summary_Report_Template.docx
+    - main.py
+    - Run_Report.vbs
+    - tools/  (folder with the tool modules)
+    - templates/Store_Summary_Report_Template.docx
 
-STEP 3 — Run setup
+STEP 3 - Run setup
 
   1. Double-click "SETUP.py"
   2. A black window opens and installs the required packages automatically
      (Internet access required for this step)
   3. When it says "SETUP COMPLETE", press Enter to close
-  4. Setup is done — you will not need to do this again
+  4. Setup is done - you will not need to do this again
 
 ================================================================================
 
-DAILY USE (Every Time You Generate a Report)
+DAILY USE (Every Time You Want to Use a Tool)
 ================================================================================
 
 1. Double-click "Run_Report.vbs"
-   - No window appears — this is normal
-   - Your browser opens automatically at http://localhost:5000
+   - No window appears - this is normal
+   - Your browser opens automatically to the HDOS Tools menu
    - If the browser does not open, type http://localhost:5000 manually
 
-2. Upload the required Excel files:
-   - Current Week Excel       → This week's Operations Report
-   - Last Year Excel          → Same week last year's Operations Report
+2. Click a tool from the menu:
 
-3. Optional uploads:
-   - Budget Excel             → Populates the Period Financials budget row
-   - Previous Summary (.docx) → Last week's generated report (for period-to-date
-                                 compounding of Sales, COGS, and Labor)
+   ---- STORE SUMMARY REPORT GENERATOR ----
 
-4. Fill in the form fields:
-   - Store Name/Number        → e.g., Thousand Oaks #36
-   - Manager Name             → Your name
-   - Hours Scheduled          → Scheduled hours for the week
-   - Budget Period            → Select the current period (e.g., Period 3)
-   - This Week COGS $         → Enter COGS dollar amount from invoices
-   - Sales Comments
-   - Labor Comments
-   - Financial Comments
-   - Team Update Comments
-   - 86 Repairs               → Click "+ Add Repair" to add rows (optional)
+   a. Upload the required Excel files:
+      - Current Week Excel       -> This week's Operations Report
+      - Last Year Excel          -> Same week last year's Operations Report
 
-5. Click "Generate Report"
+   b. Optional uploads:
+      - Budget Excel             -> Populates the Period Financials budget row
+      - Previous Summary (.docx) -> Last week's generated report (for period-to-
+                                    date compounding of Sales, COGS, and Labor)
 
-6. The completed Word document downloads automatically
+   c. Fill in the form fields:
+      - Store Name/Number        -> e.g., Thousand Oaks #36
+      - Manager Name             -> Your name
+      - Hours Scheduled          -> Scheduled hours for the week
+      - Budget Period            -> Select the current period (e.g., Period 3)
+      - This Week COGS $         -> COGS dollar amount from invoices
+      - Sales / Labor / Financial / Team Update Comments
+      - 86 Repairs               -> Click "+ Add Repair" to add rows
+
+   d. Click "Generate Report" - the Word document downloads automatically.
+
+   ---- TILL PDF TO EXCEL CONVERTER ----
+
+   a. Upload:
+      - Revel Till List PDF      -> The Revel Systems till summary export
+      - HDOS Template Excel      -> Daily Employee and Store Variance workbook
+
+   b. Select the store number from the dropdown.
+
+   c. Click "Convert PDF to Data" - a table appears.
+
+   d. Click "Copy Table to Clipboard" and paste into the correct sheet of the
+      Excel template.
+
+3. Both tools open in separate browser tabs, so the menu stays available.
+   Close a tool tab when you're done.
 
 ================================================================================
 
 FILES EXPLAINED
 ================================================================================
 
-SETUP.py
-  → Run this ONCE during initial setup
-  → Can be deleted after setup is complete
-
-Run_Report.vbs
-  → Double-click this EVERY TIME to launch the program
-  → No terminal window — browser opens silently
-  → Keep this file permanently
-
-Store_Report_Generator.py
-  → The main program (do not delete)
-  → Do not double-click this directly — use Run_Report.vbs instead
-
-Store_Summary_Report_Template.docx
-  → The blank report template
-  → Required for SETUP.py to run
-  → Can be deleted after setup is complete (template is saved internally)
+SETUP.py                  Run ONCE during initial setup. Safe to leave in place.
+main.py                   The menu + tools (do not double-click - use the .vbs).
+Run_Report.vbs            Double-click this EVERY TIME to launch the tools.
+                          No terminal window appears; browser opens silently.
+tools/                    Holds each tool (store_report_generator.py, etc.).
+templates/                Source Word/Excel templates used by SETUP.py.
+data/                     Internal working copy of the Word template (do not
+                          edit - re-run SETUP.py if it gets lost).
 
 ================================================================================
 
@@ -93,7 +107,7 @@ REQUIREMENTS
 ================================================================================
 
   - Windows 10 or 11
-  - Python 3.7 or newer (python.org — free download)
+  - Python 3.7 or newer (python.org - free download)
   - Internet access during setup only (not needed after)
   - Microsoft Word to open the generated .docx report
   - Any modern web browser (Chrome, Edge, Firefox)
@@ -104,17 +118,22 @@ TROUBLESHOOTING
 ================================================================================
 
 "Template not found" when running SETUP.py
-  → Make sure "Store_Summary_Report_Template.docx" is in the same folder as
-    SETUP.py before running it
+  -> Make sure "Store_Summary_Report_Template.docx" is in the "templates"
+     folder before running SETUP.py
 
-"Setup not complete" when running the main program
-  → Run SETUP.py first, then try again
+"Setup not complete" when running main.py
+  -> Run SETUP.py first, then try again
 
 Browser does not open automatically
-  → Open your browser and go to: http://localhost:5000
+  -> Open your browser and go to: http://localhost:5000
 
-Black window closes immediately when double-clicking Store_Report_Generator.py
-  → Python may not be installed or "Add Python to PATH" was not checked
-  → Re-run the Python installer and check "Add Python to PATH"
+"Address already in use" / port 5000 busy
+  -> Another copy of the app may still be running. Close all browser tabs,
+     wait 10 seconds, and try Run_Report.vbs again. If that doesn't help,
+     sign out and back into Windows to force-close stray Python processes.
+
+Black window closes immediately when double-clicking main.py
+  -> Python may not be installed or "Add Python to PATH" was not checked.
+     Re-run the Python installer and check "Add Python to PATH".
 
 ================================================================================

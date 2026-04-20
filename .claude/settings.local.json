@@ -4,7 +4,10 @@
       "Bash(python)",
       "Bash(pkill -9 python)",
       "Bash(taskkill /F /IM python.exe)",
-      "Bash(wmic process:*)"
+      "Bash(wmic process:*)",
+      "Bash(git mv *)",
+      "Bash(python SETUP.py)",
+      "Bash(PYTHONIOENCODING=utf-8 python SETUP.py)"
     ]
   }
 }
