@@ -439,6 +439,8 @@ def fill_word_label_cell(tables, label, value):
                     return True
     return False
 
+LABOR_ROW_LABELS = {'Management', 'Service Crew'}
+
 def extract_excel_data(file):
     """
     Label-based extraction of all metrics from an Excel operational report.
@@ -517,6 +519,7 @@ def extract_excel_data(file):
         result = dict(_ZERO)
         actual_cash = None
         expected_cash = None
+        labor_rows_seen = set()
 
         # ── Pass 1: simple row-label lookups (no section context needed) ─────
         for row in range(1, mr + 1):
@@ -531,9 +534,13 @@ def extract_excel_data(file):
             if not result['avgTicket'] and 'Average Check' in lbl:
                 result['avgTicket'] = num(row, 2) or 0
 
-            if not result['hoursWorked'] and lbl == 'Service Crew':
-                result['hoursWorked'] = num(row, 2) or 0
-                result['laborCost'] = num(row, 3) or 0  # Wages column (usually column C)
+            # Labor is split across Management + Service Crew rows; sum both.
+            # Only the first occurrence of each label counts, to avoid
+            # double-counting if the label repeats elsewhere in the sheet.
+            if lbl in LABOR_ROW_LABELS and lbl not in labor_rows_seen:
+                labor_rows_seen.add(lbl)
+                result['hoursWorked'] += num(row, 2) or 0
+                result['laborCost'] += num(row, 3) or 0  # Wages column (usually column C)
 
             if 'Actual total cash to business' in lbl:
                 actual_cash = num(row, 2) or 0
